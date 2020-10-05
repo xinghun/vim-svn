@@ -1,7 +1,7 @@
 "Show the Subversion 'blame' annotation for the current file, in a narrow
 "  window to the left of it.
 "Usage:
-"  'gb' or ':Blame'
+"  '<leader>sb' or ':Blame'
 "  To get rid of it, close or delete the annotation buffer.
 "Bugs:
 "  If the source file buffer has unsaved changes, these aren't noticed and
@@ -43,12 +43,14 @@ function s:svnBlame()
    syncbind
 endfunction
 
-map sb :call <SID>svnBlame()<CR>
+nmap <leader>sb :call <SID>svnBlame()<CR>
 command Blame call s:svnBlame()
+
 
 function s:svnLog()
     let ret = system("svn log -l3 ".expand("%"))
     echo ret
 endfunction
-map sl :call <SID>svnLog()<CR>
+
+nmap <leader>sl :call <SID>svnLog()<CR>
 command Log call s:svnLog()
