@@ -26,7 +26,7 @@ function s:svnBlame()
 
    " blame
    setlocal noreadonly
-   execute "%!svn blame " . "-v " . file
+   execute "%!svn blame --force " . "-v " . file
    setlocal nomodified readonly buftype=nofile nowrap winwidth=1
    setlocal nonumber
    if has('&relativenumber') | setlocal norelativenumber | endif
